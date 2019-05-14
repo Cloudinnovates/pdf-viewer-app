@@ -8,5 +8,8 @@
 
 <ion-content>
 
+  <div class="finger-swipe" #swipediv (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)"
+    [ngStyle]="{'height': swipeHeight +'px'}">
+  </div>
   <pdf-viewer src="assets/data/paris-travel-guide.pdf" [show-all]="false" [original-size]="false"></pdf-viewer>
 </ion-content>
