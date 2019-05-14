@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "pdf-viewer-app",
+  "appId": "com.pdfviewer.app",
+  "appName": "Pdf Viewer",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www"
