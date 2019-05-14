@@ -1,5 +1,6 @@
 {
 	"name": "Paris Travel Guide",
+	"pageCount": 16,
 	"content": [
 		{
 			"pageNumber": 0,
@@ -49,22 +50,22 @@
 			"description": "Airports",
 			"group": "",
 			"showList": true
-        },
-        {
+		},
+		{
 			"pageNumber": 7,
 			"title": "Transport-Car",
 			"description": "Rental and taxis",
 			"group": "",
 			"showList": true
-        },
-        {
+		},
+		{
 			"pageNumber": 8,
 			"title": "Transport-Bike",
 			"description": "",
 			"group": "",
 			"showList": true
-        },
-         {
+		},
+		{
 			"pageNumber": 9,
 			"title": "Where To Go",
 			"description": "",
@@ -77,15 +78,15 @@
 			"description": "",
 			"group": "",
 			"showList": true
-        },
-        {
+		},
+		{
 			"pageNumber": 12,
 			"title": "Budget in Paris",
 			"description": "",
 			"group": "",
 			"showList": true
-        },
-        {
+		},
+		{
 			"pageNumber": 14,
 			"title": "Unmissable Visits",
 			"description": "",

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PdfService } from '../pdf.service';
 
 @Component({
@@ -7,7 +7,12 @@ import { PdfService } from '../pdf.service';
     styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
+    @ViewChild('pdf_viewer') pdf_viewer;
+
     title = 'loading...';
+    currentPage = 1;
+    pdfViewerHeight = 0;
+
     constructor(private pdfService: PdfService) { }
 
     ngOnInit() {
@@ -15,10 +20,16 @@ export class HomePage implements OnInit {
     }
 
     onSwipeRight(event) {
-        console.log('swipe right');
+        this.currentPage = this.pdfService.getBeforePage(this.currentPage);
     }
 
     onSwipeLeft(event) {
-        console.log('swipe left');
+        this.currentPage = this.pdfService.getNextPage(this.currentPage);
+    }
+
+    pageRendered() {
+        this.pdfViewerHeight = this.pdf_viewer.element.nativeElement.scrollHeight;
+        console.log(this.pdfViewerHeight);
+
     }
 }
