@@ -18,7 +18,7 @@
   <div class="content-menu" [@contentMenu]='showContentMenu ? "show" :"hide"'>
     <app-content-menu (pageClick)="onPageClick($event)"> </app-content-menu>
   </div>
-  <div class="finger-swipe" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)"
+  <div class="finger-swipe" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)" (pinchin)="onZoomIn($event)" (pinchout)="onZoomOut($event)"
     [ngStyle]="{'height':pdfViewerHeight +'px'}">
   </div>
   <pdf-viewer [ngStyle]="{'margin-top': pdfMarginTop+'%', 'margin-left': pdfMarginLeft+'%'}" *ngIf="!!currentPage"

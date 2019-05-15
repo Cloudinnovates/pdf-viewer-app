@@ -52,6 +52,14 @@ export class PdfService {
     this.storage.set('zoomFactor', v);
   }
 
+  scaleZoomFactor(scale: number) {
+    let newFactor = this.zoomFactor.value + (this.zoomFactor.value * (scale - 1) * 0.2);
+    newFactor = newFactor < 1 ? 1 : newFactor;
+    newFactor = newFactor > 35 ? 35 : newFactor;
+    this.setZoomFactor(newFactor);
+
+  }
+
   getCurrentPage() {
     return this.currentPage.asObservable();
   }

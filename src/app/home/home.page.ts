@@ -96,4 +96,12 @@ export class HomePage implements OnInit, OnDestroy {
         this.pdfMarginLeft = (this.zoom - 1) * -110;
         this.pdfMarginTop = (this.zoom - 1) * -110;
     }
+
+    onZoomIn(event) {
+        this.pdfService.scaleZoomFactor(event.scale);
+    }
+
+    onZoomOut(event) {
+        this.pdfService.scaleZoomFactor(event.scale);
+    }
 }
