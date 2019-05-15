@@ -42,3 +42,17 @@ export class PdfService {
   }
 
 }
+
+
+
+export interface IPdfPage {
+  pageNumber: number;
+  title: string;
+  description: string;
+  group: PdfPageGroup;
+  showOnMenu: boolean;
+}
+
+export enum PdfPageGroup {
+
+}
