@@ -9,11 +9,20 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+import { HomePage } from './home/home.page';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(),  IonicStorageModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent, HomePage],
+  entryComponents: [HomePage],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
+    AppRoutingModule,
+    PdfViewerModule,
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -21,4 +30,4 @@ import { IonicStorageModule } from '@ionic/storage';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
