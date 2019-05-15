@@ -37,10 +37,14 @@ export class PdfService {
     this.currentPage.next(v);
     this.storage.set('lastPage', v);
   }
+
   getCurrentPage() {
     return this.currentPage.asObservable();
   }
 
+  getPages(): IPdfPage[] {
+    return pdfInfo.pages as any;
+  }
 }
 
 

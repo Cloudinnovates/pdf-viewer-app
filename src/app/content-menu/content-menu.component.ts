@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PdfService, IPdfPage } from '../pdf.service';
 
 @Component({
   selector: 'app-content-menu',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentMenuComponent implements OnInit {
 
-  constructor() { }
+  pages: IPdfPage[] = [];
+  constructor(private pdfService: PdfService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.pages = this.pdfService.getPages();
+
+  }
 
 }

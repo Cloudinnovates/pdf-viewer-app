@@ -1,3 +1,9 @@
-<p>
-  content-menu works!
-</p>
+<div class="content-menu">
+  <div class="page" *ngFor="let page of pages">
+    <div class="page-number">{{page.pageNumber}}</div>
+    <div class="page-info">
+      <div class="page-tite">{{page.title}}</div>
+      <div class="page-description">{{page.description}}</div>
+    </div>
+  </div>
+</div>
