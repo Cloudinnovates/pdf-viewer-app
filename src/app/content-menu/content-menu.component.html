@@ -1,5 +1,5 @@
 <div class="content-menu">
-  <div class="page" *ngFor="let page of pages">
+  <div class="page" *ngFor="let page of pages" (click)="onPageClick(page)">
     <div class="number">{{page.pageNumber}}</div>
     <div class="info">
       <div class="title">{{page.title}}</div>

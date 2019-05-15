@@ -33,7 +33,7 @@ export class PdfService {
     this.setCurrentPage(page);
   }
 
-  setCurrentPage(v: number) {
+  private setCurrentPage(v: number) {
     this.currentPage.next(v);
     this.storage.set('lastPage', v);
   }
@@ -44,6 +44,10 @@ export class PdfService {
 
   getContentPages(): IPdfPage[] {
     return (pdfInfo.pages as any).filter(x => x.showOnMenu);
+  }
+
+  goPage(page: IPdfPage) {
+    this.setCurrentPage(page.pageNumber + pdfInfo.firstPageOffset);
   }
 }
 

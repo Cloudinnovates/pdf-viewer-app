@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { PdfService } from '../pdf.service';
+import { PdfService, IPdfPage } from '../pdf.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -49,6 +49,10 @@ export class HomePage implements OnInit, OnDestroy {
     onToggleContentMenu() {
         this.showContentMenu = !this.showContentMenu;
         this.title = this.showContentMenu ? 'Menu' : this.pdfService.pdfName;
+    }
 
+    onPageClick(page: IPdfPage) {
+        this.pdfService.goPage(page);
+        this.onToggleContentMenu();
     }
 }
