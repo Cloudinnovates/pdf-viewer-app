@@ -12,7 +12,9 @@
 </ion-header>
 
 <ion-content>
-  <app-content-menu *ngIf="showContentMenu" (pageClick)="onPageClick($event)"></app-content-menu>
+  <div class="content-menu" [@contentMenu]='showContentMenu ? "show" :"hide"'>
+    <app-content-menu (pageClick)="onPageClick($event)"> </app-content-menu>
+  </div>
   <div class="finger-swipe" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)"
     [ngStyle]="{'height':pdfViewerHeight +'px'}">
   </div>

@@ -1,11 +1,16 @@
-
-.finger-swipe{
-    position: absolute;
-    z-index: 1;
-    width: 100%;
+.finger-swipe {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
 }
 
+.content-menu {
+	position: absolute;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+}
 
-pdf-viewer{
-    display: block;
+pdf-viewer {
+	display: block;
 }
