@@ -14,6 +14,7 @@ export class HomePage implements OnInit, OnDestroy {
     title = 'loading...';
     currentPage = null;
     pdfViewerHeight = 0;
+    showContentMenu = false;
 
     constructor(private pdfService: PdfService) { }
 
@@ -43,5 +44,9 @@ export class HomePage implements OnInit, OnDestroy {
 
     pageRendered() {
         this.pdfViewerHeight = this.pdf_viewer.element.nativeElement.scrollHeight;
+    }
+
+    onToggleContentMenu() {
+        this.showContentMenu = !this.showContentMenu;
     }
 }
