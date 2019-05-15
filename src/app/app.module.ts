@@ -12,9 +12,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { HomePage } from './home/home.page';
+import { ContentMenuComponent } from './content-menu/content-menu.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePage],
+  declarations: [AppComponent, HomePage, ContentMenuComponent],
   entryComponents: [HomePage],
   imports: [
     BrowserModule,
