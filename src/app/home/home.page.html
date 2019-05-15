@@ -7,9 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <div class="finger-swipe" #swipediv (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)"
+  <div class="finger-swipe" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)"
     [ngStyle]="{'height':pdfViewerHeight +'px'}">
   </div>
-  <pdf-viewer #pdf_viewer src="assets/data/paris-travel-guide.pdf" (page-rendered)="pageRendered()" [show-all]="false"
-    [original-size]="false" [page]="currentPage"></pdf-viewer>
+  <pdf-viewer *ngIf="!!currentPage" #pdf_viewer src="assets/data/paris-travel-guide.pdf"
+    (page-rendered)="pageRendered()" [render-text]="false" [show-all]="false" [original-size]="false"
+    [page]="currentPage"></pdf-viewer>
 </ion-content>
