@@ -14,10 +14,16 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { HomePage } from './home/home.page';
 import { ContentMenuComponent } from './content-menu/content-menu.component';
+import { ZoomMenuComponent } from './zoom-menu/zoom-menu.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePage, ContentMenuComponent],
-  entryComponents: [HomePage],
+  declarations: [
+    AppComponent,
+    HomePage,
+    ContentMenuComponent,
+    ZoomMenuComponent
+  ],
+  entryComponents: [HomePage, ZoomMenuComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

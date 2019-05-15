@@ -4,6 +4,9 @@
       {{title}}
     </ion-title>
     <ion-buttons slot="primary">
+      <ion-button color="secondary" (click)="onShowZoomMenu($event)">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
       <ion-button color="secondary" (click)="onToggleContentMenu()">
         <ion-icon slot="icon-only" name="menu"></ion-icon>
       </ion-button>

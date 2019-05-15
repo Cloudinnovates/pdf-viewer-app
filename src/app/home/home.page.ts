@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { PdfService, IPdfPage } from '../pdf.service';
 import { Subscription } from 'rxjs';
+import { PopoverController } from '@ionic/angular';
+import { ZoomMenuComponent } from '../zoom-menu/zoom-menu.component';
 
 @Component({
     selector: 'app-home',
@@ -24,7 +26,10 @@ export class HomePage implements OnInit, OnDestroy {
     pdfViewerHeight = 0;
     showContentMenu = false;
 
-    constructor(private pdfService: PdfService) { }
+    constructor(
+        private pdfService: PdfService,
+        private popoverController: PopoverController
+    ) { }
 
     ngOnInit() {
         this.title = this.pdfService.pdfName;
@@ -62,5 +67,14 @@ export class HomePage implements OnInit, OnDestroy {
     onPageClick(page: IPdfPage) {
         this.pdfService.goPage(page);
         this.onToggleContentMenu();
+    }
+
+    async onShowZoomMenu(ev) {
+        const popover = await this.popoverController.create({
+            component: ZoomMenuComponent,
+            event: ev,
+            translucent: true
+        });
+        await popover.present();
     }
 }
