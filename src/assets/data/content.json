@@ -1,6 +1,7 @@
 {
 	"name": "Paris Travel Guide",
 	"pageCount": 16,
+	"firstPageOffset": 1,
 	"content": [
 		{
 			"pageNumber": 0,
