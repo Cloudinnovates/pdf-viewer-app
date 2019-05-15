@@ -48,5 +48,7 @@ export class HomePage implements OnInit, OnDestroy {
 
     onToggleContentMenu() {
         this.showContentMenu = !this.showContentMenu;
+        this.title = this.showContentMenu ? 'Menu' : this.pdfService.pdfName;
+
     }
 }

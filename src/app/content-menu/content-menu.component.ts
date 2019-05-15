@@ -12,7 +12,7 @@ export class ContentMenuComponent implements OnInit {
   constructor(private pdfService: PdfService) { }
 
   ngOnInit() {
-    this.pages = this.pdfService.getPages();
+    this.pages = this.pdfService.getContentPages();
 
   }
 

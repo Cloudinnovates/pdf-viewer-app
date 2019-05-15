@@ -42,8 +42,8 @@ export class PdfService {
     return this.currentPage.asObservable();
   }
 
-  getPages(): IPdfPage[] {
-    return pdfInfo.pages as any;
+  getContentPages(): IPdfPage[] {
+    return (pdfInfo.pages as any).filter(x => x.showOnMenu);
   }
 }
 
