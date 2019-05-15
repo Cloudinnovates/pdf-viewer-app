@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PdfService } from '../pdf.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-zoom-menu',
@@ -7,14 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZoomMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pdfService: PdfService) { }
 
-  zoomFactor = 10;
+  zoomFactor = 1;
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.pdfService.getZoomFactor().pipe(take(1)).toPromise()
+      .then(zoomFactor => {
+        this.zoomFactor = zoomFactor;
+      });
+  }
 
   onChangeZoom(event: any) {
     this.zoomFactor = event.detail.value;
+    this.pdfService.setZoomFactor(this.zoomFactor);
   }
 
 }

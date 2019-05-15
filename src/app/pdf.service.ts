@@ -8,7 +8,10 @@ import { Storage } from '@ionic/storage';
 export class PdfService {
   private firstPage = 1;
   private currentPage: BehaviorSubject<number> = new BehaviorSubject(null);
+  private zoomFactor: BehaviorSubject<number> = new BehaviorSubject(0);
   public pdfName = 'loading...';
+
+
   constructor(private storage: Storage) {
     this.pdfName = pdfInfo.name;
     this.firstPage = 1 + pdfInfo.firstPageOffset;
@@ -19,6 +22,12 @@ export class PdfService {
         this.currentPage.next(val);
       } else {
         this.currentPage.next(this.firstPage);
+      }
+    });
+
+    this.storage.get('zoomFactor').then((val) => {
+      if (!!val) {
+        this.zoomFactor.next(val);
       }
     });
   }
@@ -38,8 +47,17 @@ export class PdfService {
     this.storage.set('lastPage', v);
   }
 
+  setZoomFactor(v: number) {
+    this.zoomFactor.next(v);
+    this.storage.set('zoomFactor', v);
+  }
+
   getCurrentPage() {
     return this.currentPage.asObservable();
+  }
+
+  getZoomFactor() {
+    return this.zoomFactor.asObservable();
   }
 
   getContentPages(): IPdfPage[] {

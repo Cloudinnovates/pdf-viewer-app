@@ -20,11 +20,16 @@ import { ZoomMenuComponent } from '../zoom-menu/zoom-menu.component';
 export class HomePage implements OnInit, OnDestroy {
     @ViewChild('pdf_viewer') pdf_viewer;
     pageSubscription: Subscription;
+    zoomSubscription: Subscription;
+
+    pdfMarginTop = 0;
+    pdfMarginLeft = 0;
 
     title = 'loading...';
     currentPage = null;
     pdfViewerHeight = 0;
     showContentMenu = false;
+    zoom = 1;
 
     constructor(
         private pdfService: PdfService,
@@ -39,11 +44,20 @@ export class HomePage implements OnInit, OnDestroy {
                 console.log('currentPage:', this.currentPage);
             }
         });
+        this.zoomSubscription = this.pdfService.getZoomFactor().subscribe(zoomFactor => {
+            this.zoom = 1 + zoomFactor / 100;
+            this.centralizePdf();
+            console.log('zoom:', this.zoom);
+        });
     }
 
     ngOnDestroy() {
         if (this.pageSubscription) {
             this.pageSubscription.unsubscribe();
+        }
+
+        if (this.zoomSubscription) {
+            this.zoomSubscription.unsubscribe();
         }
     }
 
@@ -76,5 +90,10 @@ export class HomePage implements OnInit, OnDestroy {
             translucent: true
         });
         await popover.present();
+    }
+
+    centralizePdf() {
+        this.pdfMarginLeft = (this.zoom - 1) * -110;
+        this.pdfMarginTop = (this.zoom - 1) * -110;
     }
 }
